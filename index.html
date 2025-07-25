@@ -134,7 +134,7 @@
   <div id="n8n-chat"></div>
 
   <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.es.js';
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
       webhookUrl: 'http://n8n.hostfabtech.xyz:83/webhook/1aefb023-34fa-4b92-95c0-7529c0096d18/chat',
@@ -143,7 +143,7 @@
         headers: {}
       },
       target: '#n8n-chat',
-      mode: 'fullscreen',
+      mode: 'window',
       chatInputKey: 'chatInput',
       chatSessionKey: 'sessionId',
       loadPreviousSession: true,
