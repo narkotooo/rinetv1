@@ -1752,12 +1752,12 @@ ul.user-stack-list li:hover {
   border:var(--chat--message--bot--border)
 }
 .chat-message.chat-message-from-user {
-  color:var(--chat--message--user--color);
+  color:#573B72;
   margin-left:auto;
   border-bottom-right-radius:0
 }
 .chat-message.chat-message-from-user:not(.chat-message-transparent) {
-  background-color:var(--chat--message--user--background);
+  background-color:#573B72;
   border:var(--chat--message--user--border)
 }
 .chat-message>.chat-message-markdown {
