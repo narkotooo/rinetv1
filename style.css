@@ -812,8 +812,8 @@ body[data-theme=dark] .hljs-deletion {
   vertical-align:middle;
   -webkit-user-select:none;
   user-select:none;
-  color:var(--chat--button--color);
-  background-color:var(--chat--button--background);
+  color:#573B72;
+  background-color:#573B72;
   border:1px solid transparent;
   padding:var(--chat--button--padding);
   font-size:1rem;
@@ -824,7 +824,7 @@ body[data-theme=dark] .hljs-deletion {
 }
 .chat-button:hover {
   color:var(--chat--button--hover--color);
-  background-color:var(--chat--button--hover--background);
+  background-color:#573B72;
   text-decoration:none
 }
 .chat-button:focus {
@@ -1193,7 +1193,7 @@ body[data-theme=dark] .hljs-deletion {
 .el-button.el-color-dropdown__link-btn {
   --button-font-color: var(--color-button-secondary-font);
   --button-border-color: var(--color-button-secondary-border);
-  --button-background-color: var(--color-button-secondary-background);
+  --button-background-color: #573B72;
   --button-hover-font-color: var(--color-button-secondary-hover-active-focus-font);
   --button-hover-border-color: var(--color-button-secondary-hover-active-focus-border);
   --button-hover-background-color: var(--color-button-secondary-hover-background);
@@ -1310,7 +1310,7 @@ body[data-theme=dark] .hljs-deletion {
 ._tertiary_mdqve_334 {
   --button-font-color: var(--color-button-secondary-font);
   --button-border-color: var(--color-button-secondary-border);
-  --button-background-color: var(--color-button-secondary-background);
+  --button-background-color: #573B72;
   --button-hover-font-color: var(--color-button-secondary-hover-active-focus-font);
   --button-hover-border-color: var(--color-button-secondary-hover-active-focus-border);
   --button-hover-background-color: var(--color-button-secondary-hover-background);
