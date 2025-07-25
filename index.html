@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rinet v1 BETA Chat</title>
-
-  <!-- Външен стил от GitHub чрез jsDelivr -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-
-  <!-- Твоят персонализиран стил -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rinet v1 BETA</title>
+  <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">
   <style>
     :root {
       --chat--color-primary: #ffffff;
@@ -131,28 +128,65 @@
     <img src="https://github.com/narkotooo/dth/blob/main/images/logo.png?raw=true" alt="Logo" />
   </div>
 
-  <div id="n8n-chat"></div>
-
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-    createChat({
-      webhookUrl: 'http://n8n.hostfabtech.xyz:83/webhook/1aefb023-34fa-4b92-95c0-7529c0096d18/chat',
-      webhookConfig: {
-        method: 'POST',
-        headers: {}
-      },
-      target: '#n8n-chat',
-      mode: 'window',
-        en: {
-          title: 'Rinet v1 BETA',
-          subtitle: ' ',
-          footer: '',
-          getStarted: 'New Conversation',
-          inputPlaceholder: 'Type your question..',
+    (async function () {
+      const authentication = 'none';
+      let metadata;
+      if (authentication === 'n8nUserAuth') {
+        try {
+          const response = await fetch('/rest/login', {
+            method: 'GET',
+            headers: { 'browser-id': localStorage.getItem('n8n-browserId') }
+          });
+
+          if (response.status !== 200) {
+            throw new Error('Not logged in');
+          }
+
+          const responseData = await response.json();
+          metadata = {
+            user: {
+              id: responseData.data.id,
+              firstName: responseData.data.firstName,
+              lastName: responseData.data.lastName,
+              email: responseData.data.email,
+            },
+          };
+        } catch (error) {
+          window.location.href = '/signin?redirect=' + window.location.href;
+          return;
+        }
+      }
+
+      createChat({
+        mode: 'fullscreen',
+        webhookUrl: 'http://n8n.hostfabtech.xyz:83/webhook/1aefb023-34fa-4b92-95c0-7529c0096d18/chat',
+        showWelcomeScreen: false,
+        loadPreviousSession: false,
+        metadata: metadata,
+        webhookConfig: {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Instance-Id': '5005bca9e61f5438b10953a2c5e40e85c45dd4ec107a32ab6ba1ca3d147a1611',
+          }
         },
-      },
-    });
+        allowFileUploads: false,
+        allowedFilesMimeTypes: '',
+        i18n: {
+          en: {
+            title: "Rinet v1 BETA",
+            subtitle: "",
+            getStarted: "Start Chat",
+            inputPlaceholder: "Ask me something..."
+          }
+        },
+        initialMessages: [
+          "*Note: This is a beta release. Some features may not work as expected.*"
+        ],
+      });
+    })();
   </script>
 </body>
 </html>
