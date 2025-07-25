@@ -113,7 +113,7 @@
   --chat--window--margin-bottom: var(--chat--spacing);
   --chat--header-height: auto;
   --chat--header--padding: var(--chat--spacing);
-  --chat--header--background: var(--chat--color-dark);
+  --chat--header--background: #573B72;
   --chat--header--color: var(--chat--color-light);
   --chat--header--border-top: none;
   --chat--header--border-bottom: none;
