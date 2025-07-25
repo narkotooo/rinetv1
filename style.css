@@ -846,7 +846,7 @@ body[data-theme=dark] .hljs-deletion {
   text-align:center
 }
 .chat-powered-by a {
-  color:var(--chat--color-primary);
+  color:#00000000;
   text-decoration:none
 }
 .chat-get-started-footer {
