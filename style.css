@@ -86,11 +86,11 @@
   background-color:#ffeef0
 }
 :root {
-  --chat--color-primary: #00000000;
-  --chat--color-primary-shade-50: #db4061;
-  --chat--color-primary-shade-100: #cf3c5c;
-  --chat--color-secondary: #20b69e;
-  --chat--color-secondary-shade-50: #1ca08a;
+  --chat--color-primary: #573B72;
+  --chat--color-primary-shade-50: #573B72;
+  --chat--color-primary-shade-100: #573B72;
+  --chat--color-secondary: #573B72;
+  --chat--color-secondary-shade-50: #573B72;
   --chat--color-white: #ffffff;
   --chat--color-light: #f2f4f8;
   --chat--color-light-shade-50: #e6e9f1;
