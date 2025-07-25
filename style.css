@@ -610,7 +610,7 @@ body[data-theme=dark] .hljs-deletion {
   }
 }
 .chat-message-markdown :root {
-  --background-main: #fefefe;
+  --background-main: #00000000;
   --background-element: #eee;
   --background-inverted: #282a36;
   --text-main: #1f1f1f;
