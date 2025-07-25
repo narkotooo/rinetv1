@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rinet v1 BETA Chat</title>
+
+  <!-- Външен стил от GitHub чрез jsDelivr -->
+  <link href="https://cdn.jsdelivr.net/gh/narkotooo/rinetv1@main/style.css" rel="stylesheet" />
+
+  <!-- Твоят персонализиран стил -->
+  <style>
+    :root {
+      --chat--color-primary: #ffffff;
+      --chat--color-primary-shade-50: #db4061;
+      --chat--color-primary-shade-100: #cf3c5c;
+      --chat--color-secondary: #777980;
+      --chat--color-secondary-shade-50: #777980;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #0000000;
+      --chat--color-light-shade-50: #00000000;
+      --chat--color-light-shade-100: #00000000;
+      --chat--color-medium: #d2d4d9;
+      --chat--color-dark: #00000000;
+      --chat--color-disabled: #777980;
+      --chat--color-typing: #ffffff80;
+
+      --chat--spacing: 1rem;
+      --chat--border-radius: 0.25rem;
+      --chat--transition-duration: 0.15s;
+      --chat--font-family: (
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif
+      );
+
+      --chat--window--width: 400px;
+      --chat--window--height: 600px;
+      --chat--window--bottom: var(--chat--spacing);
+      --chat--window--right: var(--chat--spacing);
+      --chat--window--z-index: 9999;
+      --chat--window--border: 1px solid var(--chat--color-light-shade-50);
+      --chat--window--border-radius: var(--chat--border-radius);
+      --chat--window--margin-bottom: var(--chat--spacing);
+
+      --chat--header-height: auto;
+      --chat--header--padding: var(--chat--spacing);
+      --chat--header--background: #50505080;
+      --chat--header--color: #ffffff;
+      --chat--heading--font-size: 2em;
+      --chat--subtitle--font-size: inherit;
+      --chat--subtitle--line-height: 1.8;
+
+      --chat--message--font-size: 1rem;
+      --chat--message--padding: var(--chat--spacing);
+      --chat--message--border-radius: var(--chat--border-radius);
+      --chat--message-line-height: 1.5;
+      --chat--message--margin-bottom: calc(var(--chat--spacing) * 1);
+      --chat--message--bot--background: #99999950;
+      --chat--message--bot--color: #ffffff;
+      --chat--message--user--background: #77798050;
+      --chat--message--user--color: var(--chat--color-white);
+      --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+      --chat--messages-list--padding: var(--chat--spacing);
+
+      --chat--toggle--size: 64px;
+      --chat--toggle--width: var(--chat--toggle--size);
+      --chat--toggle--height: var(--chat--toggle--size);
+      --chat--toggle--border-radius: 50%;
+      --chat--toggle--background: var(--chat--color-primary);
+      --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+      --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+      --chat--toggle--color: var(--chat--color-white);
+
+      --chat--textarea--height: 50px;
+      --chat--textarea--max-height: 30rem;
+      --chat--input--font-size: inherit;
+      --chat--input--border: 0;
+      --chat--input--border-radius: 0;
+      --chat--input--padding: 0.8rem;
+      --chat--input--background: #99999950;
+      --chat--input--text-color: #ffffff;
+      --chat--input--line-height: 1.5;
+
+      --chat--button--color: var(--chat--color-light);
+      --chat--button--background: var(--chat--color-primary);
+      --chat--button--padding: calc(var(--chat--spacing) * 0.5) var(--chat--spacing);
+      --chat--button--border-radius: var(--chat--border-radius);
+      --chat--button--hover--color: var(--chat--color-light);
+      --chat--button--hover--background: var(--chat--color-primary-shade-50);
+
+      --chat--input--send--button--background: #80808080;
+      --chat--input--send--button--color: var(--chat--color-light);
+      --chat--input--send--button--background-hover: var(--chat--color-primary-shade-50);
+      --chat--input--send--button--color-hover: var(--chat--color-secondary-shade-50);
+
+      --chat--body--background: var(--chat--color-light);
+      --chat--footer--background: var(--chat--color-light);
+      --chat--footer--color: var(--chat--color-dark);
+    }
+
+    html, body, #n8n-chat {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('https://raw.githubusercontent.com/narkotooo/dth/refs/heads/main/images/hero-bg-3000.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+.center-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.center-logo img {
+  width: 200px; /* Можеш да го промениш */
+  max-width: 80%;
+  height: auto;
+}
+
+  </style>
+</head>
+<body>
+  <div class="center-logo">
+    <img src="https://github.com/narkotooo/dth/blob/main/images/logo.png?raw=true" alt="Logo" />
+  </div>
+
+  <div id="n8n-chat"></div>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'http://n8n.hostfabtech.xyz:83/webhook/1aefb023-34fa-4b92-95c0-7529c0096d18/chat',
+      webhookConfig: {
+        method: 'POST',
+        headers: {}
+      },
+      target: '#n8n-chat',
+      mode: 'fullscreen',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      loadPreviousSession: true,
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [],
+      i18n: {
+        en: {
+          title: 'Rinet v1 BETA',
+          subtitle: ' ',
+          footer: '',
+          getStarted: 'New Conversation',
+          inputPlaceholder: 'Type your question..',
+        },
+      },
+    });
+  </script>
+</body>
+</html>
