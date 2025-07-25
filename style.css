@@ -1010,7 +1010,7 @@ body[data-theme=dark] .hljs-deletion {
   gap:1em;
   height:var(--chat--header-height);
   padding:var(--chat--header--padding);
-  background:var(--chat--header--background);
+  background:hsl(279.1, 44%, 29.4%);
   color:var(--chat--header--color);
   border-top:var(--chat--header--border-top);
   border-bottom:var(--chat--header--border-bottom);
