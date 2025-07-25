@@ -19,7 +19,7 @@
 .n8n-chat .hljs-template-variable,
 .n8n-chat .hljs-type,
 .n8n-chat .hljs-variable.language_ {
-  color:#d73a49
+  color:#573B72
 }
 .n8n-chat .hljs-title,
 .n8n-chat .hljs-title.class_,
@@ -42,11 +42,11 @@
 .n8n-chat .hljs-regexp,
 .n8n-chat .hljs-string,
 .n8n-chat .hljs-meta .hljs-string {
-  color:#032f62
+  color:#573B72
 }
 .n8n-chat .hljs-built_in,
 .n8n-chat .hljs-symbol {
-  color:#e36209
+  color:#573B72
 }
 .n8n-chat .hljs-comment,
 .n8n-chat .hljs-code,
